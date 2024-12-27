@@ -1,4 +1,4 @@
-You are tasked with setting up a CI/CD pipeline in Jenkins to perform rolling deployments of a microservice to a Kubernetes cluster. The microservice is built as a Docker container. The pipeline should ensure zero downtime during deployments, perform basic health checks after the deployment, and roll back automatically if the deployment fails. How would you design this pipeline?"
+1. You are tasked with setting up a CI/CD pipeline in Jenkins to perform rolling deployments of a microservice to a Kubernetes cluster. The microservice is built as a Docker container. The pipeline should ensure zero downtime during deployments, perform basic health checks after the deployment, and roll back automatically if the deployment fails. How would you design this pipeline?"
 
     1. get the code from git - webhook
     2. do a static code analysis
@@ -12,7 +12,20 @@ You are tasked with setting up a CI/CD pipeline in Jenkins to perform rolling de
     10. post action : kubectl rollout undo
 
 
-You have a Jenkins pipeline set up for a project, and the pipeline works fine when manually triggered. However, when trying to trigger the pipeline automatically via a Git webhook, the build fails with an error message indicating that the Jenkins server is unable to access the repository. What steps would you take to troubleshoot and resolve the issue?
+2. You have a Jenkins pipeline set up for a project, and the pipeline works fine when manually triggered. However, when trying to trigger the pipeline automatically via a Git webhook, the build fails with an error message indicating that the Jenkins server is unable to access the repository. What steps would you take to troubleshoot and resolve the issue?
 
     1. Verify the GitHub token in Jenkins credentials whether it is expired or not.
     2. Ensure the webhook is configured with the correct Jenkins URL and events (such as push or pull request).
+
+3. Multiplebranch pipeline
+    1. Multiplebranch pipeline in jenkins is used handle, multiple branches in the git repo, if u configure a multiplebranch piepeline,jenkins will automatically create a pipeline for each branch..and trigger based on the based on the changes
+    2. Jenkins automatically detects all branches and creates a pipeline for each one.
+
+4. Handling Failures in a Jenkins Pipeline
+You have a Jenkins pipeline that includes several stages like Build, Test, and Deploy. Occasionally, the Test stage fails due to intermittent issues, but you want the pipeline to continue the build process after a failure in the Test stage.
+
+Question: How would you modify the pipeline to ensure that the failure in the Test stage doesn’t halt the entire pipeline, but you still want to track and report the failure?
+    * catchError is the most commonly used step for this scenario as it allows you to handle failures without halting the pipeline.
+    * The try-catch block provides a more manual method for catching errors and marking the build accordingly.
+
+It will catch the error in the stage and continues the pipeline.
