@@ -1,0 +1,75 @@
+1. can u explain the cicd process in your current project ? or can u talk about any cicd process
+that u have implemented ?
+
+    we r using Jenkins to achieve the CICD
+        * Sonarqube,
+        * Trivy
+        * App Scan
+        * ArgoCd
+        * Docker 
+        * Kubernetes
+
+    - code commit 
+    - Jenkins will trigger 
+    - pull the Code 
+    - Build the Code 
+    - static code analaysis 
+    - App scan 
+    - build the Docker image and using argocd image updater directly update the image in manifest
+    - Argocd will look for manifest new tag
+    - we can deploy Kubernetes
+
+2. wht are the different ways to trigger Jenkins pipeline ?
+
+    poll scm : Jenkins periodically checks the source code repository (e.g., Git) for changes.
+    for every 5 mins
+
+    build trigger : Manual trigger using build now
+
+    webhooks : Trigger pipelines automatically when a change occurs in a repository (e.g., GitHub, GitLab, Bitbucket).
+    Set up a webhook in the repository to notify Jenkins of changes.
+
+
+3. How to take backup Jenkins ?
+    Jobs, Plugins, settings, build history
+    * we can use some plugins like thin thinback or backup plugin.
+    * we can write a script and schedule corn job to take backup
+
+3. how do u store/secure/handle secrets in jenkins ?
+    
+    * credentials plugin that can be used to store the value
+    * Hashicorp vault - integrate jenkins with Hashicorp vault, invoke the secret from vault
+
+4. wht is the latest version of jenkins ?
+
+    * 2.491
+
+5. shared modules in jenkins
+
+    * re-use the same pipeline shared across multiple teams.
+
+7. auto scaling feaure for jenkins
+
+8. how to add new worker node in jenkins
+    mananges jenkins -> manage node - new node
+
+9. wht agents u r using
+- docker agent
+- Kubernetes agents
+- aws
+
+10 wht is sonarqube ?
+    sonarqube will do a static code analysis, it will ensure high quality code
+    it identifies bugs in code and check for vulenarability ,unwanted variables declaration and  syntax. 
+
+    And it will give as a report.
+
+11.sonarqube quality gate
+    it is a predefined a condition that code can met to pass the acceptable quality
+
+12. OWASP Depedency is a SCA Tool(software composition analaysis)
+    it will check for the vulenarability in the application dependencies or libraries.
+    It will check against public vulenarability database
+
+13. trivy will scan the Container images and file system for any vulenarability
+Securing Container Image using trivy in CICD Pipeline

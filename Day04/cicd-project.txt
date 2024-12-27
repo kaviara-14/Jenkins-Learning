@@ -1,0 +1,25 @@
+CICD - Continous Integration and continous delivery
+
+CI will ensure all the test, code quality & security,
+CD - deployments
+
+Jenkins for CI & ArgoCD for CD
+
+Source Code in a github
+    * Java Code..whenever devolper do a pull request happens
+    * using webhook - git will send the notification to Jenkins
+
+Jenkins will trigger the pipeline(CI) :
+    * we use declarative jenkins pipeline
+    * since it is a Java application..in stage 1 build the project and unit testing
+    * static code analysis 
+    * security vulenarability - sonarqube
+    * if it is fail..configure alerts email notification
+    * create a docker image and push the new image tag to github manifest.
+
+CD :
+    * Gitops based tools are best fo cd...
+    * github gives versioning..
+    * Argo Image updater - it will continous monitor the github update the update the image git repository.
+    * ArgoCD - whenever there is a new change , take the yaml file and deploy it in Kubernetes.
+    * maintain the state between git and Kubernetes

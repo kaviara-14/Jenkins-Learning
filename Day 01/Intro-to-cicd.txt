@@ -1,0 +1,43 @@
+CICD - Continous Integration and Continous delivery
+
+    * CI/CD is a process that automates application testing and delivery
+
+        - Unit testing
+        - Static-code Analysis
+        - vulnerability testing
+        - Reporting
+
+    for continous Integration.
+
+    * Jenkins is an orchestrator that automates and integrates various tools in a pipeline like sonarqube,trivy..etc
+    * Deploying applications to different environments for testing and production
+    * Using GitHub Actions or GitLab pipelines for CI/CD can help save resources and increase efficiency.
+    * CI/CD Solutions are scalable and have emerging alternatives like GitHub Actions, GitLab CI/CD.
+
+1. wht is jenkins
+    * jenkins is CICD tool that automates application testing and deployments.
+    * in jenkins ci part we can do static code analaysis, check for any vulenarability .
+    * in jenkins cd part will deploy our application to Kubernetes or any other rool
+
+2. Jenkins Agent
+    * Jenkins Agent is also known as jenkins slave
+    * Jenkins agent is a separate machine which connects to the jenkins master to build and run the job.
+    * jenkins master schedule the task, and jenkins agent will execute them
+    * which will allow parallel execution
+
+3. wt is the differencee bt freestyle and pipeline
+    pipeline : it's declarative format..we can write code
+    freestyle : we can define steps for the build manually in the ui.
+
+4. How do you handle failure scenarios in Jenkins pipelines?
+    - try/catch - catch the error.
+    - post action - if anything failed..we can confire email
+    - retry
+
+5. wht are some essential plugins
+    - git 
+    - docker
+    - maevan
+
+6. declarative pipeline : uses a structured and predefined syntax, make it easier to maintain.
+    scripted pipeline : groovy syntax complex to understand..

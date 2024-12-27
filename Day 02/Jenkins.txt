@@ -1,0 +1,33 @@
+Jenkins will run port 8080.
+
+1. Jenkins Architecure.
+
+    * Jenkins Master - for scheduling purpose..
+
+    * Jenkins worker - for categories the application
+
+2. In Plugins - we can install the multiple Plugins.
+
+3. Pipeline - declarative approach(scripted Pipeline)
+
+Pipeline{
+    agent any
+
+    stages{
+        stage('Build){
+            steps {
+                echo "hello world"
+            }
+        }
+
+        stage('test'){
+            steps {
+                echo "hello"
+            }
+        }
+    }
+}
+
+4. ArgocD - tool for continous delivery
+look for the changes in the github
+monitor the status of the kubernetess.
