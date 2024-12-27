@@ -29,3 +29,50 @@ Question: How would you modify the pipeline to ensure that the failure in the Te
     * The try-catch block provides a more manual method for catching errors and marking the build accordingly.
 
 It will catch the error in the stage and continues the pipeline.
+
+5. Handling Parallel Stages in a Jenkins Pipeline
+        You need to optimize your Jenkins pipeline for faster execution by running multiple tasks in parallel. For example, you want to run unit tests, linting,         and security scans concurrently after the build stage.
+
+    Question: How would you modify a Jenkins pipeline to execute the Test, Lint, and Security Scan stages in parallel, and ensure the pipeline waits for all of them to complete before moving to the next stage?
+
+    Answer : Parallel block, this will run the jobs parallely.
+        stage('test','scan'){
+        parallel {
+        stage('test'){
+        }
+        stage('scan'){
+        }
+    }
+    }
+
+    * The parallel block allows you to execute multiple stages concurrently. In this case, the test, scan,stages are executed in         parallel  after the Build     stage.
+    Each of these stages will run at the same time, speeding up the pipeline.
+    * the pipeline will wait for all the parallel stages to complete before moving on to the next stage
+    * if any of the parallel stages fail, Jenkins will consider the entire parallel block as failed. If you want to allow one of the parallel tasks to fail without     failing the entire pipeline, you can use the catchError
+
+6. You are tasked with setting up a Jenkins pipeline for multiple projects that need similar steps, but with dynamic values (e.g., different configurations or project names). The configuration of each project may change frequently.
+
+    Question: How would you dynamically create Jenkins jobs for each project using a single Jenkins pipeline, ensuring that each job has project-specific         
+     configurations (e.g., repository URL, environment variables)?
+
+    parmaterized pipeline
+
+    The pipeline uses parameters such as PROJECT_NAME, REPO_URL, and ENVIRONMENT to dynamically customize the pipeline steps.
+
+7.  Handling Dependencies Between Jobs in Jenkins
+        You are working with multiple Jenkins jobs, and there is a dependency between them. For example, the deployment job should only run if the build and test jobs succeed.
+        
+        Question: How would you set up job dependencies between Jenkins pipelines so that a Deploy job is triggered only when the Build and Test jobs have successfully complete
+        Answer : * Conditionally Triggering Stages: Run a stage only if certain conditions are met (e.g., only deploy to production if the branch is main).
+                 * Skipping Stages: Skip a stage if a condition is met (e.g., skip the Test stage if it's a merge commit).
+                * Handling Results: Conditionally run a stage depending on the result of a previous stage (e.g., only deploy if the tests pass).
+
+8. You have a Jenkins pipeline that takes too long to complete due to repeated tasks in multiple stages. The pipeline needs to be optimized to reduce build time, especially when there are no changes to the code or configurations.
+    
+    Question: What strategies can you use to optimize the pipeline and reduce build times in Jenkins? How would you implement caching or skipping unnecessary tasks to speed up the process
+
+    Answer : * store downloaded depdendencies..with this we can avoid downloading everytime,if we r using docker..caching the docker layer speed up the process
+            * use when condition to skip some stages..if no code changes happend..we can skip build and testing
+            * we can run our pipeline parallely..testing, scan, depedency check
+
+9. The changeset condition ensures that the Build and Test stages only run when there are changes to some files.
