@@ -1,0 +1,12 @@
+You are tasked with setting up a CI/CD pipeline in Jenkins to perform rolling deployments of a microservice to a Kubernetes cluster. The microservice is built as a Docker container. The pipeline should ensure zero downtime during deployments, perform basic health checks after the deployment, and roll back automatically if the deployment fails. How would you design this pipeline?"
+
+1. get the code from git - webhook
+2. do a static code analysis
+3. check for vulanerability in application dependencies/library,packages
+4. scan the file system using trivy
+5. build the image
+6. scan the image
+7. rolling update
+8. i will configure readiness prob and liveness prob in the kubernetes yaml
+9. deploy to kubernetes..if deplpyment..rollout will rollout the previous version
+10. post action : kubectl rollout undo

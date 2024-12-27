@@ -73,3 +73,17 @@ that u have implemented ?
 
 13. trivy will scan the Container images and file system for any vulenarability
 Securing Container Image using trivy in CICD Pipeline
+
+14. "Your Jenkins pipeline fails during the build stage due to a missing dependency in the application.
+ How would you debug and resolve this issue?"
+
+I will check console output first understand the Solutions
+In requirement.txt i will check for the missing dependencies
+i will configure post actions
+
+15. "You deployed a new version of your application to Kubernetes using a Jenkins pipeline, but the application started failing. How would you roll back the deployment?"
+
+I will use kubernetess describe pods
+if i am using helm i will use heml rollback back
+if i am using argocd,  i will revert the commit and sync it 
+

@@ -23,3 +23,4 @@ CD :
     * Argo Image updater - it will continous monitor the github update the update the image git repository.
     * ArgoCD - whenever there is a new change , take the yaml file and deploy it in Kubernetes.
     * maintain the state between git and Kubernetes
+

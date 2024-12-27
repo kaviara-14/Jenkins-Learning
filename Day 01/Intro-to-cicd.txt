@@ -41,3 +41,25 @@ CICD - Continous Integration and Continous delivery
 
 6. declarative pipeline : uses a structured and predefined syntax, make it easier to maintain.
     scripted pipeline : groovy syntax complex to understand..
+
+7 . wht is the differencee between continous Integration, continous deployments, continous delivery
+
+    Continous Integration : In CI,  Developers push code changes..using webhooks we will trigger
+    we will automate the ci part where we will do unit testing, static code analysis, check for the vulenarability, if we r using any image we will scan 
+    the Image.
+    In CI, will make sure we have high code quality with all the security features
+
+    Continous delivery : CD extends CI by automating the release process to ensure the application can be deployed to production at any time.
+    Automated builds are deployed to staging or test environments for further validation.
+    Manual or semi-automated approval processes may exist before deploying to production.
+
+    continous deployments :
+    Continuous Deployment takes Continuous Delivery a step further by automating the deployment of every change that passes the automated tests directly into production without manual approval
+    Code changes that pass all tests and validations are automatically pushed to production.
+    Monitoring systems ensure deployed changes are functioning correctly.
+
+8. Jenkins using domain specific language called groovy.
+
+9. RBAC ensures users have the appropriate access permissions in Jenkins, enhancing security and access control.
+ create a role attach a role to user or grop
+RBAC, Jenkins to manage user permissions
