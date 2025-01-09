@@ -76,3 +76,13 @@ It will catch the error in the stage and continues the pipeline.
             * we can run our pipeline parallely..testing, scan, depedency check
 
 9. The changeset condition ensures that the Build and Test stages only run when there are changes to some files.
+
+10. You are managing a CI/CD pipeline for a critical application. During the build stage, you notice that the pipeline is failing intermittently due to a dependency download issue. How would you approach and resolve this problem?
+
+* Check the requirement.txt for any missing dependencies or check the versions are up to date
+* caching the dependencies try to store the dependencies in the pipeline,instead of downloading it for everytime time use tools like artifacotry or s3 bucket.
+* use retry if any failure in stage
+* configure email for post action, use try and catch to catch the error.
+* pipeline logs to check the issues.
+
+11. 
